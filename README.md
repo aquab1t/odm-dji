@@ -8,7 +8,7 @@ Without correction, ODM initializes all DJI cameras with zero distortion
 coefficients and no rolling shutter compensation — causing visible geometric
 distortion in orthophotos and DSMs. This tool fixes that.
 
-**Measured improvement on DJI FC330 (Phantom 3), 36 photos, ultra quality:**
+**Measured improvement on DJI Phantom 3 (FC330), ultra quality:**
 
 | Setup | Reprojection error |
 |-------|-------------------|
@@ -52,14 +52,14 @@ The script prompts you step by step:
 ```
 === ODM DJI Drone Processor ===
 
-Photos folder: /home/jose/Desktop/Fotos Dron Curso
+Photos folder: /path/to/your/photos
   → Scanning EXIF...
-  → Detected: DJI Phantom 3 (FC330) — 36 photos  [known]
-  → Camera:   rolling_shutter=True, k1=-0.270, k2=0.090
+  → Detected: DJI Mini 4 Pro (FC3411) — 120 photos  [known]
+  → Camera:   rolling_shutter=True, k1=-0.110, k2=0.018
   → Is this correct? [Y/n]:
 
-Project name [Fotos_Dron_Curso_20260310]:
-Output folder [/home/jose/Desktop/Fotos_Dron_Curso_20260310]:
+Project name [MyFlight_20240101]:
+Output folder [/path/to/MyFlight_20240101]:
 
 Quality:
   1) low      — 10 cm/px,  ~5 min
@@ -71,11 +71,11 @@ Choose [1-4]:
 Generate CHM (DSM − DTM)? [y/N]:
 
 === Summary ===
-  Photos:           36 × FC330
-  Output:           /home/jose/Desktop/Fotos_Dron_Curso_20260310
+  Photos:           120 × FC3411
+  Output:           /path/to/MyFlight_20240101
   Quality:          ultra (2 cm/px,  ~60 min)
-  Rolling shutter:  yes (readout: 16 ms)
-  Lens calibration: pre-loaded (k1=-0.270, k2=0.090)
+  Rolling shutter:  yes (readout: 28 ms)
+  Lens calibration: pre-loaded (k1=-0.110, k2=0.018)
 
 Run ODM? [Y/n]:
 ```
