@@ -1,0 +1,7 @@
+FROM opendronemap/odm
+
+# The venv has numpy 2.3.2 but the system _gdal_array.so was compiled against numpy 1.x.
+# Downgrade numpy in the venv and copy the system binding.
+RUN /code/venv/bin/pip install --quiet "numpy<2" && \
+    cp /usr/lib/python3/dist-packages/osgeo/_gdal_array.cpython-312-x86_64-linux-gnu.so \
+       /code/venv/lib/python3.12/site-packages/osgeo/_gdal_array.cpython-312-x86_64-linux-gnu.so
