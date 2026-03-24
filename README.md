@@ -43,6 +43,34 @@ This only needs to be done once. The build takes a few minutes.
 
 ## Usage
 
+### Batch Runner (non‑interactive)
+
+```bash
+python3 run_batch_odm.py \
+    --photos-dir /media/jose/Fury/example2/ \
+    --output-dir /media/jose/Fury/output2/ \
+    --quality low \
+    --no-chm
+```
+
+Runs the same processing pipeline as `odm_dji.py` but without any prompts. Use `--quality` to choose `low|medium|high|ultra`. Add `--no-chm` to skip canopy‑height‑model generation.
+
+### PALMAS Batch Runner
+
+```bash
+python3 run_palmas_batch_odm.py \
+    --input-dir /media/jose/Fury/palmas/ \
+    --output-dir /media/jose/Fury/output_palmas/ \
+    --quality low \
+    --skip-ndvi \
+    [--force]  # optional: overwrite existing output folders
+```
+
+Runs ODM on each PALMAS granule, aligns multispectral bands and (optionally) creates an NDVI orthophoto. Use `--skip-ndvi` to bypass NDVI generation.
+
+
+
+
 ```bash
 python3 odm_dji.py
 ```
@@ -99,6 +127,7 @@ readout time, used as an initial estimate that ODM then refines.
 | FC3170 | DJI Air 2S | −0.095 | 0.015 | 25 ms |
 | FC2103 | DJI Mavic Air 2 | −0.131 | 0.022 | 30 ms |
 | FC8282 | DJI Neo | −0.158 | 0.030 | 30 ms |
+| FC2105 | DJI Mavic 3 Multispectral | −0.105 | 0.020 | 28 ms |
 
 Unknown cameras fall back to rolling shutter only (k1=k2=0, readout=30 ms),
 which is always safer than ODM's default of no rolling shutter correction at all.
